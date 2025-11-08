@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BallController : MonoBehaviour
 {
     [SerializeField]
@@ -40,6 +40,8 @@ public class BallController : MonoBehaviour
                 gameOver = true;
                 //rb.useGravity = true;
                 rb.linearVelocity = new Vector3(0, -25f, 0);
+                Camera.main.GetComponent<CameraFollow>().gameOver = true;
+                // SceneManager.LoadScene(0);
       }
             if (Input.GetMouseButtonDown(0) && !gameOver)
             {

@@ -6,12 +6,10 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platform;
     Vector3 lastPos;
     float size;
-    public bool gameOver;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameOver = false;
         lastPos = platform.transform.position;
         size = platform.transform.localScale.x;
 
@@ -23,7 +21,7 @@ public class PlatformSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver) 
+        if (GameManager.instance.gameOver) 
         {
             CancelInvoke("SpawnPlatform");
         }

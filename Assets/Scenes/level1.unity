@@ -954,6 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   platform: {fileID: 5167091085831939367, guid: 54fc363c815bd9b4c86f85fbc6a35f68, type: 3}
+  gameOver: 0
 --- !u!4 &827629729
 Transform:
   m_ObjectHideFlags: 0

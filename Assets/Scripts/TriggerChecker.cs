@@ -18,7 +18,7 @@ public class TriggerChecker : MonoBehaviour
     {
         if (col.tag == "Ball")
         {
-            Invoke("FallDown",1f);
+            Invoke("FallDown",0.5f);
             // FallDown();
         }
     }
@@ -27,7 +27,7 @@ public class TriggerChecker : MonoBehaviour
     {
         Rigidbody rb = GetComponentInParent<Rigidbody>();
         rb.useGravity = true;
-        rb.linearVelocity = 5* Vector3.down;// new Vector3(rb.linearVelocity.x, -1f, rb.linearVelocity.z);
+        rb.isKinematic = false;
         Destroy(transform.parent.gameObject, 2f);
   }
 }

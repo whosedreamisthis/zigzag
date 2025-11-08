@@ -13,16 +13,20 @@ public class PlatformSpawner : MonoBehaviour
     {
         lastPos = platform.transform.position;
         size = platform.transform.localScale.x;
-       
-        SpawnPlatforms();   
+
+        SpawnPlatforms();
         // SpawnPlatforms();
-        InvokeRepeating("SpawnPlatform", 2f,0.2f);
+    }
+
+    public void StartSpawningPlatforms()
+    {
+        InvokeRepeating("SpawnPlatform", 0.1f, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.gameOver) 
+        if (GameManager.instance.gameOver)
         {
             CancelInvoke("SpawnPlatform");
         }
@@ -30,25 +34,25 @@ public class PlatformSpawner : MonoBehaviour
 
     void SpawnPlatform()
     {
-      
-     float randVal = Random.value;
-            if (randVal > 0.5f)
-            {
-                SpawnX();
-            }
-            else
-            {
-                SpawnZ(); 
-            }
-  }
+        float randVal = Random.value;
+        if (randVal > 0.5f)
+        {
+            SpawnX();
+        }
+        else
+        {
+            SpawnZ();
+        }
+    }
 
     void SpawnPlatforms()
-  {
-        for (int i = 0; i < 20; i++ )
+    {
+        for (int i = 0; i < 20; i++)
         {
             SpawnPlatform();
         }
-  }
+    }
+
     void SpawnX()
     {
         Vector3 pos = lastPos;
@@ -58,7 +62,6 @@ public class PlatformSpawner : MonoBehaviour
         p.transform.parent = transform;
 
         SpawnDiamond(pos);
-
     }
 
     void SpawnZ()
@@ -70,7 +73,7 @@ public class PlatformSpawner : MonoBehaviour
         p.transform.parent = transform;
         SpawnDiamond(pos);
     }
-  
+
     void SpawnDiamond(Vector3 pos)
     {
         pos.y += 1;
@@ -80,5 +83,5 @@ public class PlatformSpawner : MonoBehaviour
         {
             Instantiate(diamond, pos, diamond.transform.rotation);
         }
-  }
+    }
 }

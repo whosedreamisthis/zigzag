@@ -23,7 +23,10 @@ public class UIManager : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() { }
+    void Start()
+    {
+        highScore1.text = "High Score: " + PlayerPrefs.GetInt("highScore").ToString();
+    }
 
     public void GameStart()
     {
@@ -33,6 +36,8 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        score.text = PlayerPrefs.GetInt("score").ToString();
+        highScore2.text = PlayerPrefs.GetInt("highScore").ToString();
         gameOverPanel.SetActive(true);
     }
 

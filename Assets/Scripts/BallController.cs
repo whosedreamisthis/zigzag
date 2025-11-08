@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class BallController : MonoBehaviour
 {
+    public GameObject particles;
+
     [SerializeField]
     private float speed;
 
@@ -15,10 +18,9 @@ public class BallController : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-  {
+    {
         started = false;
-
-  }
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,24 +33,25 @@ public class BallController : MonoBehaviour
                 started = true;
             }
         }
-        else {
+        else
+        {
             // Debug.DrawRay(transform.position, Vector3.down, Color.red);
             bool collided = Physics.Raycast(transform.position, Vector3.down, 1f);
             if (!collided)
-      {
+            {
                 GameManager.instance.gameOver = true;
                 //rb.useGravity = true;
                 rb.linearVelocity = new Vector3(0, -25f, 0);
                 // SceneManager.LoadScene(0);
-      }
+            }
             if (Input.GetMouseButtonDown(0) && !GameManager.instance.gameOver)
             {
                 SwitchDirection();
             }
         }
     }
-    
-    void SwitchDirection ()
+
+    void SwitchDirection()
     {
         if (rb.linearVelocity.z > 0)
         {
@@ -56,15 +59,18 @@ public class BallController : MonoBehaviour
         }
         else if (rb.linearVelocity.x > 0)
         {
-                rb.linearVelocity = new Vector3(0, 0, speed);
+            rb.linearVelocity = new Vector3(0, 0, speed);
         }
     }
 
     void OnTriggerEnter(Collider other)
-  {
-    if (other.tag == "Diamond")
     {
+        if (other.tag == "Diamond")
+        {
+            GameObject p =
+                Instantiate(particles, other.transform.position, Quaternion.identity) as GameObject;
             Destroy(other.gameObject);
+            Destroy(p, 2f);
+        }
     }
-  }
 }

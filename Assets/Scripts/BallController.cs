@@ -31,7 +31,7 @@ public class BallController : MonoBehaviour
             {
                 rb.linearVelocity = new Vector3(speed, 0, 0);
                 started = true;
-                UIManager.instance.GameStart();
+                GameManager.instance.StartGame();
             }
         }
         else
@@ -40,8 +40,7 @@ public class BallController : MonoBehaviour
             bool collided = Physics.Raycast(transform.position, Vector3.down, 1f);
             if (!collided)
             {
-                GameManager.instance.gameOver = true;
-                UIManager.instance.GameOver();
+                GameManager.instance.GameOver();
                 //rb.useGravity = true;
                 rb.linearVelocity = new Vector3(0, -25f, 0);
                 // SceneManager.LoadScene(0);

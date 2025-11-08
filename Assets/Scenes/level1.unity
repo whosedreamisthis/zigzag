@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46863f0bde92284aa13b553178f5e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 8
+  speed: 4
 --- !u!1 &804840787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,10 +1023,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 775293384979023723, guid: 17557f2fda0f2c84f8b2f1bb65ea9321, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3166774135773539325, guid: 17557f2fda0f2c84f8b2f1bb65ea9321, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -1070,6 +1066,10 @@ PrefabInstance:
     - target: {fileID: 7859886538543239331, guid: 17557f2fda0f2c84f8b2f1bb65ea9321, type: 3}
       propertyPath: m_Name
       value: Diamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859886538543239331, guid: 17557f2fda0f2c84f8b2f1bb65ea9321, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1273,8 +1273,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437139504}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29355448, y: -0.29414377, z: 0.095460035, w: -0.90454006}
-  m_LocalPosition: {x: -16.055475, y: 24.77068, z: -20.806767}
+  m_LocalRotation: {x: -0.33468753, y: -0.20217378, z: 0.07375649, w: -0.9174258}
+  m_LocalPosition: {x: -4.559288, y: 9.12922, z: -9.842269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

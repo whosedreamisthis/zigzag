@@ -49,14 +49,22 @@ public class BallController : MonoBehaviour
     }
     
     void SwitchDirection ()
-  {
+    {
         if (rb.linearVelocity.z > 0)
         {
             rb.linearVelocity = new Vector3(speed, 0, 0);
         }
-    else if (rb.linearVelocity.x > 0)
+        else if (rb.linearVelocity.x > 0)
+        {
+                rb.linearVelocity = new Vector3(0, 0, speed);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+  {
+    if (other.tag == "Diamond")
     {
-            rb.linearVelocity = new Vector3(0, 0, speed);
+            Destroy(other.gameObject);
     }
   }
 }

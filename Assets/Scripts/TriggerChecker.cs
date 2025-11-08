@@ -24,8 +24,10 @@ public class TriggerChecker : MonoBehaviour
     }
   
   void FallDown()
-  {
-        GetComponentInParent<Rigidbody>().useGravity = true;
+    {
+        Rigidbody rb = GetComponentInParent<Rigidbody>();
+        rb.useGravity = true;
+        rb.linearVelocity = 5* Vector3.down;// new Vector3(rb.linearVelocity.x, -1f, rb.linearVelocity.z);
         Destroy(transform.parent.gameObject, 2f);
   }
 }
